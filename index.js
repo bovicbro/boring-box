@@ -7,8 +7,13 @@ var express = require('express'),
     engines = require('consolidate'),
     fs = require('fs');
 
+var port=3000
 // App instance
 var app = express();
+console.log(app.get('env'))
+if (app.get('env')=='production') {
+  port = 80
+}
 
 // Views
 app.engine('html', engines.mustache);
@@ -31,5 +36,5 @@ app.get('/', function(req, res) {
 });
 
 // Go!
-app.listen(3000);
+app.listen(port);
 console.log('Listening on port 3000');
