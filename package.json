@@ -1,11 +1,12 @@
 {
   "name": "boring-box",
   "version": "1.0.0",
-  "description": "",
+  "description": "Website for boringbox",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node index.js"
+    "test": "mocha tests/test-application-start.js",
+    "start": "node index.js",
+    "ci": "server-test 3000"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,11 @@
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "mustache": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "request": "^2.88.0",
+    "start-server-and-test": "^1.7.5"
   }
 }
