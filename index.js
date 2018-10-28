@@ -1,18 +1,13 @@
-/*
- * Simple Express template server
- */
-
 // Requirements
-var express = require('express'),
-    engines = require('consolidate'),
-    fs = require('fs');
+const express = require('express');
+const engines = require('consolidate');
 
-var port=3000
+const port=3000;
 // App instance
-var app = express();
-console.log(app.get('env'))
+const app = express();
+console.log(app.get('env'));
 if (app.get('env')=='production') {
-  port = 80
+  port = 80;
 }
 
 // Views
@@ -24,15 +19,9 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
 
-// Simple JSON file parser
-var get_JSON = function(path) {
-    var fileContents = fs.readFileSync(path, 'utf8');
-    return JSON.parse(fileContents);
-}
-
 // Routes
 app.get('/', function(req, res) {
-    res.render('index.html');
+  res.render('index.html');
 });
 
 // Go!
